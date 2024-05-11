@@ -7,7 +7,7 @@ module.exports = {
     "react-app",
     "plugin:prettier/recommended",
     "prettier",
-    // "plugin:storybook/recommended",
+    "plugin:storybook/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
     "plugin:react-hooks/recommended",
@@ -64,15 +64,15 @@ module.exports = {
       },
       settings: { react: { version: "detect" } },
     },
-    // {
-    //   // override for storybook
-    //   files: ["*.{stories,story}.{ts,tsx}"],
-    //   rules: {
-    //     "@typescript-eslint/naming-convention": "off",
-    //     "@typescript-eslint/no-floating-promises": "off",
-    //     "import/no-default-export": "off",
-    //     "jsdoc/require-jsdoc": "off",
-    //   },
-    // },
+    {
+      // override for storybook
+      files: ["*.{stories,story}.{ts,tsx}"],
+      rules: {
+        "@typescript-eslint/naming-convention": "off",
+        "@typescript-eslint/no-floating-promises": "off",
+        "import/no-default-export": "off",
+        "jsdoc/require-jsdoc": "off",
+      },
+    },
   ],
 }

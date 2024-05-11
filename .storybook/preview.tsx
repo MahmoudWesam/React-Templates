@@ -1,47 +1,12 @@
-import React, { useState } from "react"
-import { QueryClient, QueryClientProvider } from "react-query"
-import { BrowserRouter } from "react-router-dom"
-
-import { StyledEngineProvider } from "@mui/material"
+import React from "react"
 
 import type { Preview } from "@storybook/react"
-import { lightTheme, darkTheme, ThemeProvider, NotificationProvider } from "@synapse-analytics/synapse-ui"
-
-import { CurrentProjectAndModelContext } from "../src/store/CurrentProjectAndModelContext"
-import { Deployment } from "../src/types/generated/api/Deployment"
 
 import "../src/index.scss"
 
-const themes = {
-  light: lightTheme,
-  dark: darkTheme,
-}
-
-// Function to obtain the intended theme
-const queryClient = new QueryClient()
-// TODO:: refactor when we have more components and use presentation container architecture
 // maybe also change the decorator based on the feature to setup the appropriate context
 const WithTheme = (Story, context): React.ReactElement => {
-  const theme = themes[context.globals.theme]
-  const [currentProject, setCurrentProject] = useState<Deployment | undefined>(undefined)
-  const [currentModel, setCurrentModel] = useState<string>("")
-
-  return (
-    <QueryClientProvider client={queryClient}>
-      <StyledEngineProvider injectFirst>
-        <ThemeProvider theme={theme}>
-          <NotificationProvider maxSnack={3} />
-          <BrowserRouter>
-            <CurrentProjectAndModelContext.Provider
-              value={{ currentProject, setCurrentProject, currentModel, setCurrentModel }}
-            >
-              <Story {...context} />
-            </CurrentProjectAndModelContext.Provider>
-          </BrowserRouter>
-        </ThemeProvider>
-      </StyledEngineProvider>
-    </QueryClientProvider>
-  )
+  return <Story {...context} />
 }
 
 const preview: Preview = {
