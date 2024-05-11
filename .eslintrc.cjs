@@ -5,12 +5,16 @@ module.exports = {
   },
   extends: [
     "react-app",
-    "plugin:prettier/recommended",
     "prettier",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
     "plugin:storybook/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
     "plugin:react-hooks/recommended",
+    "plugin:sonarjs/recommended-legacy",
+    "plugin:jsx-a11y/recommended",
   ],
   globals: {
     Atomics: "readonly",
@@ -23,7 +27,14 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "module",
   },
-  plugins: ["react", "react-refresh", "react-hooks"],
+  plugins: [
+    "react",
+    "react-refresh",
+    "react-hooks",
+    "sonarjs",
+    "prefer-arrow-functions",
+    // "filename-rules"
+  ],
   rules: {
     "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
     "react/prefer-stateless-function": 1,
@@ -35,6 +46,9 @@ module.exports = {
     "react-refresh/only-export-components": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+    // "jsx-a11y/rule-name": 2,
+    // "filename-rules/match": [2, "PascalCase"],
+    // "filename-rules/not-match": [2, "camelCase"],
   },
   overrides: [
     {
