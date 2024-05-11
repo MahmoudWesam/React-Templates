@@ -1,0 +1,13 @@
+---
+files:
+  - ./public/locales/en/*.**
+dictionaries:
+  - node_modules/spellchecker-cli/dictionaries/nextjs.txt
+language: en-US
+plugins:
+  - spell # check spelling
+  - indefinite-article # check that "a" and "an" are used correctly
+  - repeated-words # check for repeated words
+  - syntax-mentions # ignore GitHub mentions (e.g. @tbroadley) when spellchecking
+  - syntax-urls # ignore URL-like values
+  - frontmatter # parse frontmatter for spellchecking
